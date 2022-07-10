@@ -1,24 +1,16 @@
 const inquirer = require('inquirer');
+const generateHTML = require('./src/page-template')
+const { writeFile, copyFile } = require('./utils/generate-site.js')
+
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
+
 let globalTeamDetails = {
     Manager: {},
     Engineers: [],
     Interns: []
 }
-
-
-// const generatePage = require('./src/page-template.js')
-// const { writeFile, copyFile } = require('./utils/generate-site.js')
-
-// const pageHTML = generatePage(myname, github)
-
-// fs.writeFile('./index.html', pageHTML, err => {
-//     if (err) throw err;
-
-//     console.log('Portfolio complete! Check out index.html to see the output!');
-// })
 
 const employeePromptDetails = (employeeType) => {
     const employeeName = {
@@ -190,6 +182,9 @@ const recursiveFunction = (employeeType) => {
             recursiveFunction(results.nextEmployee)
         } else {
             console.log('Your team is complete! Please find your team portfolio in dist/index.html');
+            const myHTML = generateHTML(globalTeamDetails);
+            writeFile(myHTML).then(copyFile())
+
         }
     })
 }
