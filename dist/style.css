@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+nav {
+    background-color: lightcoral;
+    color: antiquewhite;
+}
+
+.employee-card {
+    border: 3px solid black;
+    padding: 0;
+}
+
+.employee-header {
+    background-color: mediumslateblue;
+    color: white;
+}
