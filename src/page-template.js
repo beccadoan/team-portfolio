@@ -23,7 +23,7 @@
                 ID: ${employee.getId()}
                 </li>
                 <li class="list-group-item">
-                email: ${employee.getEmail()}
+                email: <a href="mailto:${employee.getEmail()}>${employee.getEmail()}</a>
                 </li>
                 <li class="list-group-item">
                 ${listItem3}
